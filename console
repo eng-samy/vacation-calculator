@@ -1,0 +1,17 @@
+<?php
+declare(strict_types = 1);
+
+require __DIR__.'/vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+use Vacation\Command\CalculateVacationCommand;
+
+$application = new Application();
+
+$application->add(new CalculateVacationCommand());
+
+try {
+    $application->run();
+} catch (Exception $e) {
+    die('Failed to run the application, ' . $e->getMessage());
+}
